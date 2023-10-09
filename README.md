@@ -1,2 +1,2 @@
-# golog
-go log lib
+# glog
+a go log lib
