@@ -1,3 +1,3 @@
-module glog
+module github.com/bfun/glog
 
-go 1.21.2
+go 1.21.3
