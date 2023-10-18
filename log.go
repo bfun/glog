@@ -56,14 +56,14 @@ func replaceAttr(groups []string, a slog.Attr) slog.Attr {
 func newLogger() *slog.Logger {
 	m.Lock()
 	defer m.Unlock()
-	err := os.Mkdir("log", 0666)
+	err := os.Mkdir("log", 0755)
 	if err != nil {
 		if !os.IsExist(err) {
 			panic(err)
 		}
 	}
 	fileName = newName(false)
-	f, err := os.OpenFile(fileName, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0666)
+	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)
 	}
