@@ -33,7 +33,8 @@ func newLogger() *slog.Logger {
 	if err != nil {
 		panic(err)
 	}
-	h := slog.NewTextHandler(f, nil)
+	options := slog.HandlerOptions{AddSource: true, Level: slog.LevelInfo}
+	h := slog.NewTextHandler(f, &options)
 	return slog.New(h)
 }
 
