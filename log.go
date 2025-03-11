@@ -22,7 +22,7 @@ func newName() string {
 
 func replaceAttr(groups []string, a slog.Attr) slog.Attr {
 	if a.Key == "source" {
-		source := a.Value.Any().(slog.Source)
+		source := a.Value.Any().(*slog.Source)
 		fileName := filepath.Base(source.File)
 		return slog.Attr{
 			Key:   a.Key,
