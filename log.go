@@ -5,6 +5,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strconv"
 	"sync"
 	"time"
 )
@@ -26,7 +27,7 @@ func replaceAttr(groups []string, a slog.Attr) slog.Attr {
 		fileName := filepath.Base(source.File)
 		return slog.Attr{
 			Key:   a.Key,
-			Value: slog.StringValue(fileName),
+			Value: slog.StringValue(fileName + ":" + strconv.Itoa(source.Line) + ":" + source.Function),
 		}
 	}
 	return a
